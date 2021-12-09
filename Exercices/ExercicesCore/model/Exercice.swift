@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Exercise:Equatable,Decodable {
-    var id: Int
-    var name: String?
-    var cover_image_url:String?
-    var video_url:String?
+public struct Exercise:Equatable,Decodable {
+    public var id: Int
+    public var name: String?
+    public var cover_image_url:String?
+    public var video_url:String?
 }

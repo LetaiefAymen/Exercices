@@ -34,8 +34,8 @@
                                                         <constraint firstAttribute="width" constant="150" id="n2H-Na-aL9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLp-dJ-ckD">
-                                                    <rect key="frame" x="166" y="61.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLp-dJ-ckD">
+                                                    <rect key="frame" x="166" y="62" width="174" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -60,6 +60,7 @@
                                                 <constraint firstItem="NHr-vZ-9jh" firstAttribute="centerY" secondItem="gZ9-6v-omc" secondAttribute="centerY" id="hQA-G6-ozU"/>
                                                 <constraint firstAttribute="bottom" secondItem="NHr-vZ-9jh" secondAttribute="bottom" constant="14" id="pdh-Ae-BPc"/>
                                                 <constraint firstItem="NHr-vZ-9jh" firstAttribute="leading" secondItem="gZ9-6v-omc" secondAttribute="leading" id="tNv-ef-y6T"/>
+                                                <constraint firstItem="uke-hy-sVC" firstAttribute="leading" secondItem="zLp-dJ-ckD" secondAttribute="trailing" constant="2" id="y5Z-vL-M80"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -70,6 +71,11 @@
                                         <constraint firstItem="gZ9-6v-omc" firstAttribute="leading" secondItem="e34-2B-g6g" secondAttribute="leading" constant="8" id="waK-7J-tgx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exerciseImageView" destination="NHr-vZ-9jh" id="3Cc-59-SMG"/>
+                                    <outlet property="favoriteButton" destination="uke-hy-sVC" id="W5l-4D-UYh"/>
+                                    <outlet property="titleLabel" destination="zLp-dJ-ckD" id="wcx-Jl-KIk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -8,17 +8,17 @@
 import Foundation
 
 
-class RemoteExercisesLoader:ExerciseLoader {
+public class RemoteExercisesLoader:ExerciseLoader {
     
     let httpClient: HTTPClient
     let url: URL
     
-    init(url:URL,httpClient:HTTPClient) {
+    public init(url:URL,httpClient:HTTPClient) {
         self.httpClient = httpClient
         self.url = url
     }
     
-    func loadExercices(completion: @escaping (LoaderResult) -> ()) {
+    public func loadExercices(completion: @escaping (LoaderResult) -> ()) {
         httpClient.loadURL(url: url, completion: { clientResult in
             switch clientResult {
             case .failure(_):

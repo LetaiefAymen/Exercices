@@ -8,13 +8,13 @@
 import Foundation
 
 
-enum RemoteExerciceLoaderError:Error {
+public enum RemoteExerciceLoaderError:Error {
     case httpClientError
     case parsingError
     case unknown
 }
 
-protocol ExerciseLoader {
+public protocol ExerciseLoader {
     typealias LoaderResult = Result<[Exercise],RemoteExerciceLoaderError>
     
     func loadExercices(completion:@escaping (LoaderResult) -> ())

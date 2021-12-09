@@ -24,6 +24,7 @@
 		E193AACA2762628C004F0C2A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAC92762628C004F0C2A /* HTTPClient.swift */; };
 		E193AACC276263B5004F0C2A /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AACB276263B5004F0C2A /* URLSessionHTTPClient.swift */; };
 		E193AAD0276266B7004F0C2A /* ExerciceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AACE276265D6004F0C2A /* ExerciceCell.swift */; };
+		E193AAD327626C61004F0C2A /* ExercicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E193AAC92762628C004F0C2A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		E193AACB276263B5004F0C2A /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		E193AACE276265D6004F0C2A /* ExerciceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciceCell.swift; sourceTree = "<group>"; };
+		E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		E193AA6027624BC9004F0C2A /* Exercices */ = {
 			isa = PBXGroup;
 			children = (
+				E193AAD127626C41004F0C2A /* ViewModels */,
 				E193AACD276265C0004F0C2A /* Views */,
 				E193AA6127624BC9004F0C2A /* AppDelegate.swift */,
 				E193AA6327624BC9004F0C2A /* SceneDelegate.swift */,
@@ -227,6 +230,14 @@
 				E193AACE276265D6004F0C2A /* ExerciceCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E193AAD127626C41004F0C2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +416,7 @@
 				E193AAD0276266B7004F0C2A /* ExerciceCell.swift in Sources */,
 				E193AA6227624BC9004F0C2A /* AppDelegate.swift in Sources */,
 				E193AA6427624BC9004F0C2A /* SceneDelegate.swift in Sources */,
+				E193AAD327626C61004F0C2A /* ExercicesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
