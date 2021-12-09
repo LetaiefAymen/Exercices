@@ -36,6 +36,35 @@ class RemoteExercisesLoaderTests: XCTestCase {
         })
     }
     
+    func test_success_whenHTTPClientReturnsCorrectData() {
+        let (sut,httpClientSpy) = makeSUT()
+        let item1 = makeItem(id: 1, name: "test1", coverImageURL: "http://a-url.com", videoUrl: "http://a-url.com")
+        let item2 = makeItem(id: 2, name: "test1", coverImageURL: "http://a-url.com", videoUrl: "http://a-url.com")
+        
+        expect(sut, toCompleteWith: .success([item1.model,item2.model]), when: {
+            let jsonData = makeItemsJSON([item1.json,item2.json])
+            
+            httpClientSpy.complete(with: jsonData, code: 200)
+        })
+    }
+    
+    
+    private func makeItem(id: Int, name: String, coverImageURL: String , videoUrl: String) -> (model: Exercise, json: [String: Any]) {
+        let item = Exercise(id: id, name: name, cover_image_url: coverImageURL, video_url: videoUrl)
+
+        let json = [
+            "id": id,
+            "name": name,
+            "cover_image_url": coverImageURL,
+            "video_url": videoUrl
+        ] as [String : Any]
+
+        return (item, json)
+    }
+    
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        return try! JSONSerialization.data(withJSONObject: items)
+    }
     
     func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
@@ -87,5 +116,13 @@ class HTTPClientSpy: HTTPClient {
         completions[index](.failure(error))
     }
     
-    
+    func complete(with data:Data,code: Int,atIndex index: Int = 0) {
+        let response = HTTPURLResponse(
+            url: loadedURLs[index],
+            statusCode: code,
+            httpVersion: nil,
+            headerFields: nil)!
+        
+        completions[index](.success((response,data)))
+    }
 }

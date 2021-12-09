@@ -14,8 +14,11 @@ protocol HTTPClient {
     func loadURL(url:URL, completion: @escaping (ClientResult) -> ())
 }
 
-struct Exercise:Equatable {
-    
+struct Exercise:Equatable,Decodable {
+    var id: Int
+    var name: String?
+    var cover_image_url:String?
+    var video_url:String?
 }
 
 enum RemoteExerciceLoaderError:Error {
@@ -43,10 +46,26 @@ class RemoteExercisesLoader:ExerciseLoader {
     func loadExercices(completion: @escaping (LoaderResult) -> ()) {
         httpClient.loadURL(url: url, completion: { clientResult in
             switch clientResult {
-            case .failure(_): completion(.failure(.httpClientError))
-            default: break
+            case .failure(_):
+                completion(.failure(.httpClientError))
+            case .success(let result):
+                completion(ExercicesResultMapper.map(result.data, from: result.response))
+                  break
             }
         })
     }
     
 }
+
+
+class ExercicesResultMapper {
+    
+    static func map(_ data: Data, from response: HTTPURLResponse) -> ExerciseLoader.LoaderResult {
+        guard response.statusCode == 200, let exercices = try? JSONDecoder().decode([Exercise].self, from: data) else {
+            return .failure(RemoteExerciceLoaderError.parsingError)
+        }
+
+        return .success(exercices)
+    }
+}
+
