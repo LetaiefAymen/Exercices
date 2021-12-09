@@ -28,6 +28,7 @@
 		E193AAD727626D61004F0C2A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD627626D61004F0C2A /* ImageLoader.swift */; };
 		E193AAD927627403004F0C2A /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD827627403004F0C2A /* TrainingViewController.swift */; };
 		E193AADB27627920004F0C2A /* FavoriteStoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */; };
+		E193AADD27628909004F0C2A /* TraingingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AADC27628909004F0C2A /* TraingingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		E193AAD627626D61004F0C2A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E193AAD827627403004F0C2A /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreHelper.swift; sourceTree = "<group>"; };
+		E193AADC27628909004F0C2A /* TraingingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraingingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,12 +159,11 @@
 		E193AA6027624BC9004F0C2A /* Exercices */ = {
 			isa = PBXGroup;
 			children = (
+				E193AADE2762891D004F0C2A /* ViewControllers */,
 				E193AAD127626C41004F0C2A /* ViewModels */,
 				E193AACD276265C0004F0C2A /* Views */,
 				E193AA6127624BC9004F0C2A /* AppDelegate.swift */,
 				E193AA6327624BC9004F0C2A /* SceneDelegate.swift */,
-				E193AAD827627403004F0C2A /* TrainingViewController.swift */,
-				E193AA6527624BC9004F0C2A /* ExercicesListViewController.swift */,
 				E193AA6727624BC9004F0C2A /* Main.storyboard */,
 				E193AA6A27624BCB004F0C2A /* Assets.xcassets */,
 				E193AA6C27624BCB004F0C2A /* LaunchScreen.storyboard */,
@@ -244,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */,
+				E193AADC27628909004F0C2A /* TraingingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -255,6 +257,15 @@
 				E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		E193AADE2762891D004F0C2A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E193AAD827627403004F0C2A /* TrainingViewController.swift */,
+				E193AA6527624BC9004F0C2A /* ExercicesListViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +445,7 @@
 				E193AAD0276266B7004F0C2A /* ExerciceCell.swift in Sources */,
 				E193AA6227624BC9004F0C2A /* AppDelegate.swift in Sources */,
 				E193AA6427624BC9004F0C2A /* SceneDelegate.swift in Sources */,
+				E193AADD27628909004F0C2A /* TraingingsViewModel.swift in Sources */,
 				E193AAD327626C61004F0C2A /* ExercicesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
