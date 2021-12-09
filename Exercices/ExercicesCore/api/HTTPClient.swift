@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol HTTPClient {
+public protocol HTTPClient {
     typealias ClientResult = Result<(response:HTTPURLResponse,data:Data),Error>
     
     func loadURL(url:URL, completion: @escaping (ClientResult) -> ())

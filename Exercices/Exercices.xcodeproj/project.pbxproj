@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E193AA6227624BC9004F0C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AA6127624BC9004F0C2A /* AppDelegate.swift */; };
 		E193AA6427624BC9004F0C2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AA6327624BC9004F0C2A /* SceneDelegate.swift */; };
-		E193AA6627624BC9004F0C2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AA6527624BC9004F0C2A /* ViewController.swift */; };
+		E193AA6627624BC9004F0C2A /* ExercicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AA6527624BC9004F0C2A /* ExercicesListViewController.swift */; };
 		E193AA6927624BC9004F0C2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E193AA6727624BC9004F0C2A /* Main.storyboard */; };
 		E193AA6B27624BCB004F0C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E193AA6A27624BCB004F0C2A /* Assets.xcassets */; };
 		E193AA6E27624BCB004F0C2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E193AA6C27624BCB004F0C2A /* LaunchScreen.storyboard */; };
@@ -22,6 +22,8 @@
 		E193AAC3276260C0004F0C2A /* ExercisesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E193AA9627624C0A004F0C2A /* ExercisesCore.framework */; };
 		E193AAC4276260C0004F0C2A /* ExercisesCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E193AA9627624C0A004F0C2A /* ExercisesCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E193AACA2762628C004F0C2A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAC92762628C004F0C2A /* HTTPClient.swift */; };
+		E193AACC276263B5004F0C2A /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AACB276263B5004F0C2A /* URLSessionHTTPClient.swift */; };
+		E193AAD0276266B7004F0C2A /* ExerciceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AACE276265D6004F0C2A /* ExerciceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +68,7 @@
 		E193AA5E27624BC9004F0C2A /* Exercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E193AA6127624BC9004F0C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E193AA6327624BC9004F0C2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E193AA6527624BC9004F0C2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E193AA6527624BC9004F0C2A /* ExercicesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicesListViewController.swift; sourceTree = "<group>"; };
 		E193AA6827624BC9004F0C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E193AA6A27624BCB004F0C2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E193AA6D27624BCB004F0C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		E193AABD2762602D004F0C2A /* ExerciseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoader.swift; sourceTree = "<group>"; };
 		E193AAC0276260A3004F0C2A /* Exercice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercice.swift; sourceTree = "<group>"; };
 		E193AAC92762628C004F0C2A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		E193AACB276263B5004F0C2A /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		E193AACE276265D6004F0C2A /* ExerciceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +149,10 @@
 		E193AA6027624BC9004F0C2A /* Exercices */ = {
 			isa = PBXGroup;
 			children = (
+				E193AACD276265C0004F0C2A /* Views */,
 				E193AA6127624BC9004F0C2A /* AppDelegate.swift */,
 				E193AA6327624BC9004F0C2A /* SceneDelegate.swift */,
-				E193AA6527624BC9004F0C2A /* ViewController.swift */,
+				E193AA6527624BC9004F0C2A /* ExercicesListViewController.swift */,
 				E193AA6727624BC9004F0C2A /* Main.storyboard */,
 				E193AA6A27624BCB004F0C2A /* Assets.xcassets */,
 				E193AA6C27624BCB004F0C2A /* LaunchScreen.storyboard */,
@@ -211,8 +216,17 @@
 			isa = PBXGroup;
 			children = (
 				E193AAC92762628C004F0C2A /* HTTPClient.swift */,
+				E193AACB276263B5004F0C2A /* URLSessionHTTPClient.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		E193AACD276265C0004F0C2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E193AACE276265D6004F0C2A /* ExerciceCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +401,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E193AA6627624BC9004F0C2A /* ViewController.swift in Sources */,
+				E193AA6627624BC9004F0C2A /* ExercicesListViewController.swift in Sources */,
+				E193AAD0276266B7004F0C2A /* ExerciceCell.swift in Sources */,
 				E193AA6227624BC9004F0C2A /* AppDelegate.swift in Sources */,
 				E193AA6427624BC9004F0C2A /* SceneDelegate.swift in Sources */,
 			);
@@ -406,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E193AAC1276260A3004F0C2A /* Exercice.swift in Sources */,
+				E193AACC276263B5004F0C2A /* URLSessionHTTPClient.swift in Sources */,
 				E193AABE2762602D004F0C2A /* ExerciseLoader.swift in Sources */,
 				E193AACA2762628C004F0C2A /* HTTPClient.swift in Sources */,
 				E193AAAE27624D0B004F0C2A /* RemoteExercisesLoader.swift in Sources */,
