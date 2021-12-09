@@ -41,9 +41,9 @@ class TraingingsViewModel {
             self.showFavorite(isFavorite: currentExerciceIsFavorite)
             exerciceIndex += 1
             
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [weak self] in
-//                self?.showImage()
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                self?.showImage()
+            }
         } else {
             delegate?.leave()
         }
