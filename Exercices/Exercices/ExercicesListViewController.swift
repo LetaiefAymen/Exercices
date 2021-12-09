@@ -45,6 +45,7 @@ class ExercicesListViewController: UIViewController {
         let bundle = Bundle(for: ExercicesListViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
         let vc = storyboard.instantiateViewController(withIdentifier: "TrainingViewController") as! TrainingViewController
+        vc.modalPresentationStyle = .fullScreen
         viewModel.delegate = vc
         vc.trainingsViewModel = viewModel
         vc.imageLoader = imageLoader

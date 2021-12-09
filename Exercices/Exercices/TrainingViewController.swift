@@ -68,6 +68,7 @@ class TraingingsViewModel {
         self.favoriteStoreHelper.isFavorite(exercise: exercise)
     }
     
+    
 }
 
 
@@ -93,6 +94,16 @@ class TrainingViewController: UIViewController {
         super.viewDidLoad()
         trainingsViewModel?.start()
     }
+    
+    override public var shouldAutorotate: Bool {
+       return false
+     }
+     override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+       return .landscapeRight
+     }
+     override public var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+       return .landscapeRight
+     }
 }
 
 extension TrainingViewController: TraingingsDelegate {
