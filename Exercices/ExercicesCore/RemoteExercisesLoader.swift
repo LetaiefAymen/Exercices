@@ -14,12 +14,18 @@ protocol HTTPClient {
     func loadURL(url:URL, completion: @escaping (ClientResult) -> ())
 }
 
-struct Exercise {
+struct Exercise:Equatable {
     
 }
 
+enum RemoteExerciceLoaderError:Error {
+    case httpClientError
+    case parsingError
+    case unknown
+}
+
 protocol ExerciseLoader {
-    typealias LoaderResult = Result<[Exercise],Error>
+    typealias LoaderResult = Result<[Exercise],RemoteExerciceLoaderError>
     
     func loadExercices(completion:@escaping (LoaderResult) -> ())
 }
@@ -35,7 +41,12 @@ class RemoteExercisesLoader:ExerciseLoader {
     }
     
     func loadExercices(completion: @escaping (LoaderResult) -> ()) {
-        httpClient.loadURL(url: url, completion: { _ in })
+        httpClient.loadURL(url: url, completion: { clientResult in
+            switch clientResult {
+            case .failure(_): completion(.failure(.httpClientError))
+            default: break
+            }
+        })
     }
     
 }
