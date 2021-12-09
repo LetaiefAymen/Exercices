@@ -9,18 +9,23 @@ import Foundation
 import UIKit
 import ExercisesCore
 
-protocol TraingingsDelegate {
+protocol TraingingsDelegate:class {
     func showExercise(exercise: Exercise)
     func leave()
+    func showUnfavoriteButton()
+    func showFavoriteButton()
 }
 
 class TraingingsViewModel {
     
-    var delegate: TraingingsDelegate?
+    var favoriteStoreHelper: FavoriteStoreHelper
+    weak var delegate: TraingingsDelegate?
     var datasource: [Exercise] = []
     var exerciceIndex = 0
+    var currentExerciceIsFavorite = false
     
-    init(exercices: [Exercise]) {
+    init(exercices: [Exercise],favoriteStoreHelper:FavoriteStoreHelper) {
+        self.favoriteStoreHelper = favoriteStoreHelper
         self.datasource = exercices
     }
     
@@ -30,14 +35,37 @@ class TraingingsViewModel {
     
     func showImage() {
         if datasource.count > 0 && exerciceIndex < datasource.count {
-            delegate?.showExercise(exercise: datasource[exerciceIndex])
+            let exercise = datasource[exerciceIndex]
+            currentExerciceIsFavorite = favoriteStoreHelper.isFavorite(exercise: exercise)
+            delegate?.showExercise(exercise: exercise)
+            self.showFavorite(isFavorite: currentExerciceIsFavorite)
             exerciceIndex += 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-                self?.showImage()
-            }
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [weak self] in
+//                self?.showImage()
+//            }
         } else {
             delegate?.leave()
         }
+    }
+    
+    func switchFavorite() {
+        currentExerciceIsFavorite = !currentExerciceIsFavorite
+        let exercise = datasource[exerciceIndex]
+        self.favoriteStoreHelper.setFavorite(exercise: exercise, isFavorite: currentExerciceIsFavorite)
+        self.showFavorite(isFavorite: currentExerciceIsFavorite)
+    }
+    
+    func showFavorite(isFavorite: Bool) {
+        if(!isFavorite) {
+            self.delegate?.showFavoriteButton()
+        } else {
+            self.delegate?.showUnfavoriteButton()
+        }
+    }
+    
+    func isFavorite(exercise: Exercise) -> Bool {
+        self.favoriteStoreHelper.isFavorite(exercise: exercise)
     }
     
 }
@@ -45,10 +73,10 @@ class TraingingsViewModel {
 
 class TrainingViewController: UIViewController {
     
-    
     var trainingsViewModel: TraingingsViewModel?
     var imageLoader: ImageLoader?
     
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var exerciseImageView: UIImageView!
     
     
@@ -58,7 +86,7 @@ class TrainingViewController: UIViewController {
     }
     
     @IBAction func favoriteExerciceClicked(_ sender: Any) {
-        
+        trainingsViewModel?.switchFavorite()
     }
     
     override func viewDidLoad() {
@@ -70,7 +98,6 @@ class TrainingViewController: UIViewController {
 extension TrainingViewController: TraingingsDelegate {
     
     func showExercise(exercise: Exercise) {
-        
         if let urlString = exercise.cover_image_url, let imageUrl = URL(string: urlString) {
             imageLoader?.loadImage(url: imageUrl, completion: { result in
                 
@@ -91,5 +118,12 @@ extension TrainingViewController: TraingingsDelegate {
     
     func leave() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func showFavoriteButton() {
+        favoriteButton.setTitle("Favorite Exercice", for: .normal)
+    }
+    func showUnfavoriteButton() {
+        favoriteButton.setTitle("UnFavorite Exercice", for: .normal)
     }
 }

@@ -20,6 +20,9 @@ class ExercicesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         exercisesViewModel!.loadAllExercices()
     }
     
@@ -37,7 +40,7 @@ class ExercicesListViewController: UIViewController {
     }
     
     @IBAction func startExercisesClicked(_ sender: Any) {
-        let viewModel = TraingingsViewModel(exercices: datasource)
+        let viewModel = TraingingsViewModel(exercices: datasource,favoriteStoreHelper: exercisesViewModel!.favoriteStoreHelper)
         
         let bundle = Bundle(for: ExercicesListViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)

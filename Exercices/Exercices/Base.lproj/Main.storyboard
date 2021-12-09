@@ -167,6 +167,7 @@
                     </view>
                     <connections>
                         <outlet property="exerciseImageView" destination="clW-yP-0d0" id="gga-NG-Mnd"/>
+                        <outlet property="favoriteButton" destination="pp4-pw-31T" id="hvS-Ql-C2U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsr-q9-hhL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
