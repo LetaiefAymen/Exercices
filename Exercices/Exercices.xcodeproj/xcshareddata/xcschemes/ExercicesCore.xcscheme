@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E193AA9527624C0A004F0C2A"
                BuildableName = "ExercicesCore.framework"
-               BlueprintName = "ExercicesCore"
+               BlueprintName = "ExercisesCore"
                ReferencedContainer = "container:Exercices.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E193AA9E27624C0A004F0C2A"
                BuildableName = "ExercicesCoreTests.xctest"
-               BlueprintName = "ExercicesCoreTests"
+               BlueprintName = "ExercisesCoreTests"
                ReferencedContainer = "container:Exercices.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -62,7 +62,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E193AA9527624C0A004F0C2A"
             BuildableName = "ExercicesCore.framework"
-            BlueprintName = "ExercicesCore"
+            BlueprintName = "ExercisesCore"
             ReferencedContainer = "container:Exercices.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
