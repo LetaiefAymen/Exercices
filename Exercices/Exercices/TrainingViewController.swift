@@ -81,7 +81,6 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var exerciseImageView: UIImageView!
     
     
-    
     @IBAction func cancelTrainingClicked(_ sender: Any) {
         self.leave()
     }
@@ -92,17 +91,21 @@ class TrainingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         trainingsViewModel?.start()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     override public var shouldAutorotate: Bool {
        return false
-     }
-     override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-       return .landscapeRight
-     }
-     override public var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-       return .landscapeRight
      }
 }
 

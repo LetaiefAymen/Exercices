@@ -53,7 +53,9 @@ class ExercicesListViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-
+    override public var shouldAutorotate: Bool {
+       return false
+     }
 }
 
 
