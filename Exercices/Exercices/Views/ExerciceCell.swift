@@ -19,5 +19,6 @@ class ExerciseCell : UITableViewCell {
         
         self.titleLabel.text = exercise.name
         
+        
     }
 }

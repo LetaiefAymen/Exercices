@@ -14,6 +14,7 @@ class ExercicesListViewController: UITableViewController {
     let urlString = "https://jsonblob.com/api/jsonBlob/027787de-c76e-11eb-ae0a-39a1b8479ec2"
     
     var exercisesViewModel: ExercisesViewModel?
+    var imageLoader: ImageLoader?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,9 @@ class ExercicesListViewController: UITableViewController {
         
         let loader = RemoteExercisesLoader(url:URL(string: urlString)!,httpClient:httpClient)
         
-        exercisesViewModel = ExercisesViewModel(remoteLoader: loader)
-        exercisesViewModel?.delegate = self
-        
+        self.imageLoader = RemoteImageLoader(httpClient: httpClient)
+        self.exercisesViewModel = ExercisesViewModel(remoteLoader: loader)
+        self.exercisesViewModel?.delegate = self
     }
 
 }
@@ -44,6 +45,21 @@ extension ExercicesListViewController  {
         let exercise = datasource[indexPath.row]
         
         cell.setup(exercise: exercise)
+        if let urlString = exercise.cover_image_url, let imageUrl = URL(string: urlString) {
+            imageLoader?.loadImage(url: imageUrl, completion: { result in
+                
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data)
+                        cell.exerciseImageView?.image = image
+                    }
+                default:
+                    break
+                }
+                
+            })
+        }
         return cell
     }
     
