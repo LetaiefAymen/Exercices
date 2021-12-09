@@ -8,13 +8,13 @@
 import Foundation
 import ExercisesCore
 
-protocol ExercisesListDelegate {
+protocol ExercisesListDelegate:class {
     func showExercises(exercises: [Exercise])
 }
 
 class ExercisesViewModel {
     
-    var delegate: ExercisesListDelegate?
+    weak var delegate: ExercisesListDelegate?
     
     var remoteLoader: RemoteExercisesLoader
     var datasource: [Exercise] = []

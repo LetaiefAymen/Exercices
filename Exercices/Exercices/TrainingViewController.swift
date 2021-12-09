@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import ExercisesCore
 
-protocol TraingingsDelegate:class {
+protocol TraingingsDelegate: class {
     func showExercise(exercise: Exercise)
     func leave()
     func showUnfavoriteButton()
