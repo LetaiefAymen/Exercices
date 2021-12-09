@@ -8,11 +8,12 @@
 import UIKit
 import ExercisesCore
 
-class ExercicesListViewController: UITableViewController {
+class ExercicesListViewController: UIViewController {
 
     var datasource: [Exercise] = []
     let urlString = "https://jsonblob.com/api/jsonBlob/027787de-c76e-11eb-ae0a-39a1b8479ec2"
     
+    @IBOutlet weak var tableView: UITableView!
     var exercisesViewModel: ExercisesViewModel?
     var imageLoader: ImageLoader?
     
@@ -34,13 +35,27 @@ class ExercicesListViewController: UITableViewController {
         self.exercisesViewModel = ExercisesViewModel(remoteLoader: loader)
         self.exercisesViewModel?.delegate = self
     }
+    
+    @IBAction func startExercisesClicked(_ sender: Any) {
+        let viewModel = TraingingsViewModel(exercices: datasource)
+        
+        let bundle = Bundle(for: ExercicesListViewController.self)
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TrainingViewController") as! TrainingViewController
+        viewModel.delegate = vc
+        vc.trainingsViewModel = viewModel
+        vc.imageLoader = imageLoader
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 }
 
 
-extension ExercicesListViewController  {
+extension ExercicesListViewController: UITableViewDataSource,UITableViewDelegate  {
     
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciceCell", for: indexPath) as! ExerciseCell
         let exercise = datasource[indexPath.row]
         
@@ -63,11 +78,11 @@ extension ExercicesListViewController  {
         return cell
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }
 }
