@@ -51,7 +51,7 @@ class TraingingsViewModel {
     
     func switchFavorite() {
         currentExerciceIsFavorite = !currentExerciceIsFavorite
-        let exercise = datasource[exerciceIndex]
+        let exercise = datasource[exerciceIndex-1]
         self.favoriteStoreHelper.setFavorite(exercise: exercise, isFavorite: currentExerciceIsFavorite)
         self.showFavorite(isFavorite: currentExerciceIsFavorite)
     }
