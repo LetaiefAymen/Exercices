@@ -195,8 +195,6 @@
 				E193AAD527626D46004F0C2A /* services */,
 				E193AAC82762627C004F0C2A /* api */,
 				E193AABF27626078004F0C2A /* model */,
-				E193AAAD27624D0B004F0C2A /* RemoteExercisesLoader.swift */,
-				E193AABD2762602D004F0C2A /* ExerciseLoader.swift */,
 			);
 			path = ExercicesCore;
 			sourceTree = "<group>";
@@ -253,6 +251,8 @@
 		E193AAD527626D46004F0C2A /* services */ = {
 			isa = PBXGroup;
 			children = (
+				E193AABD2762602D004F0C2A /* ExerciseLoader.swift */,
+				E193AAAD27624D0B004F0C2A /* RemoteExercisesLoader.swift */,
 				E193AAD627626D61004F0C2A /* ImageLoader.swift */,
 				E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */,
 			);
