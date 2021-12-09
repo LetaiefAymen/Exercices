@@ -8,30 +8,6 @@
 import Foundation
 
 
-protocol HTTPClient {
-    typealias ClientResult = Result<(response:HTTPURLResponse,data:Data),Error>
-    
-    func loadURL(url:URL, completion: @escaping (ClientResult) -> ())
-}
-
-struct Exercise:Equatable,Decodable {
-    var id: Int
-    var name: String?
-    var cover_image_url:String?
-    var video_url:String?
-}
-
-enum RemoteExerciceLoaderError:Error {
-    case httpClientError
-    case parsingError
-    case unknown
-}
-
-protocol ExerciseLoader {
-    typealias LoaderResult = Result<[Exercise],RemoteExerciceLoaderError>
-    
-    func loadExercices(completion:@escaping (LoaderResult) -> ())
-}
 
 class RemoteExercisesLoader:ExerciseLoader {
     
