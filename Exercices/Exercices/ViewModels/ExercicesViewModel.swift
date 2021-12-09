@@ -18,9 +18,11 @@ class ExercisesViewModel {
     
     var remoteLoader: RemoteExercisesLoader
     var datasource: [Exercise] = []
+    var favoriteStoreHelper: FavoriteStoreHelper
     
-    init(remoteLoader: RemoteExercisesLoader) {
+    init(remoteLoader: RemoteExercisesLoader,favoriteStoreHelper: FavoriteStoreHelper) {
         self.remoteLoader = remoteLoader
+        self.favoriteStoreHelper = favoriteStoreHelper
     }
     
     func loadAllExercices() {
@@ -29,12 +31,23 @@ class ExercisesViewModel {
 
             switch result {
             case .success(let exercises) :
-                self?.delegate?.showExercises(exercises: exercises)
+                guard let self = self else { return }
+                self.datasource = exercises
+                self.delegate?.showExercises(exercises: self.datasource)
             case .failure(_):
                 break
             }
             }
         })
+    }
+    
+    func switchFavorite(exercise: Exercise, curentIsFavorite: Bool) {
+        self.favoriteStoreHelper.setFavorite(exercise: exercise, isFavorite: !curentIsFavorite)
+        self.delegate?.showExercises(exercises: datasource)
+    }
+    
+    func isFavorite(exercise: Exercise) -> Bool {
+        self.favoriteStoreHelper.isFavorite(exercise: exercise)
     }
     
 }

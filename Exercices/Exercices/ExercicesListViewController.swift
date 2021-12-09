@@ -32,7 +32,7 @@ class ExercicesListViewController: UIViewController {
         let loader = RemoteExercisesLoader(url:URL(string: urlString)!,httpClient:httpClient)
         
         self.imageLoader = RemoteImageLoader(httpClient: httpClient)
-        self.exercisesViewModel = ExercisesViewModel(remoteLoader: loader)
+        self.exercisesViewModel = ExercisesViewModel(remoteLoader: loader,favoriteStoreHelper: FavoriteStoreHelper())
         self.exercisesViewModel?.delegate = self
     }
     
@@ -59,7 +59,8 @@ extension ExercicesListViewController: UITableViewDataSource,UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciceCell", for: indexPath) as! ExerciseCell
         let exercise = datasource[indexPath.row]
         
-        cell.setup(exercise: exercise)
+        cell.setup(exercise: exercise, isFavorite: exercisesViewModel!.isFavorite(exercise: exercise))
+        cell.delegate = self
         if let urlString = exercise.cover_image_url, let imageUrl = URL(string: urlString) {
             imageLoader?.loadImage(url: imageUrl, completion: { result in
                 
@@ -93,6 +94,13 @@ extension ExercicesListViewController: ExercisesListDelegate {
     func showExercises(exercises: [Exercise]) {
         self.datasource = exercises
         self.tableView.reloadData()
+    }
+}
+
+extension ExercicesListViewController: ExerciseCellDelegate {
+    
+    func favoriteClicked(exercise: Exercise, isFavorite: Bool) {
+        exercisesViewModel?.switchFavorite(exercise: exercise, curentIsFavorite: isFavorite)
     }
     
     

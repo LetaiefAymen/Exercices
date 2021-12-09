@@ -27,6 +27,7 @@
 		E193AAD327626C61004F0C2A /* ExercicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */; };
 		E193AAD727626D61004F0C2A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD627626D61004F0C2A /* ImageLoader.swift */; };
 		E193AAD927627403004F0C2A /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AAD827627403004F0C2A /* TrainingViewController.swift */; };
+		E193AADB27627920004F0C2A /* FavoriteStoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E193AAD227626C61004F0C2A /* ExercicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercicesViewModel.swift; sourceTree = "<group>"; };
 		E193AAD627626D61004F0C2A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E193AAD827627403004F0C2A /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				E193AAD627626D61004F0C2A /* ImageLoader.swift */,
+				E193AADA27627920004F0C2A /* FavoriteStoreHelper.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				E193AAD727626D61004F0C2A /* ImageLoader.swift in Sources */,
 				E193AABE2762602D004F0C2A /* ExerciseLoader.swift in Sources */,
 				E193AACA2762628C004F0C2A /* HTTPClient.swift in Sources */,
+				E193AADB27627920004F0C2A /* FavoriteStoreHelper.swift in Sources */,
 				E193AAAE27624D0B004F0C2A /* RemoteExercisesLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

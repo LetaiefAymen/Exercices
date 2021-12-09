@@ -54,6 +54,9 @@
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="star" catalog="system" title=" "/>
+                                                            <connections>
+                                                                <action selector="favoriteClicked:" destination="uAO-nb-pyp" eventType="touchUpInside" id="gGg-QR-18V"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
